@@ -150,7 +150,7 @@ public class UserControl : MonoBehaviour
                     MoveCommand cmd = new MoveCommand(m_SelectedUnit.CurrentCell, clickedCell);
                     CommandManager.Instance.AddCommand(cmd);
                 }
-                else
+                else if(unit.Side != m_SelectedUnit.Side)
                 {
                     
                     CaptureCommand cmd = new CaptureCommand(m_SelectedUnit.CurrentCell, clickedCell, unit);
