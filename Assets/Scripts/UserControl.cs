@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Commands;
 using UnityEngine;
 
 public class UserControl : MonoBehaviour
@@ -148,6 +149,13 @@ public class UserControl : MonoBehaviour
                 {
                     MoveCommand cmd = new MoveCommand(m_SelectedUnit.CurrentCell, clickedCell);
                     CommandManager.Instance.AddCommand(cmd);
+                }
+                else
+                {
+                    
+                    CaptureCommand cmd = new CaptureCommand(m_SelectedUnit.CurrentCell, clickedCell, unit);
+                    CommandManager.Instance.AddCommand(cmd);
+                 
                 }
             }
         }

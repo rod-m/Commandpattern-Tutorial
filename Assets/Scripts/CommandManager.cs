@@ -8,6 +8,7 @@ public class CommandManager : MonoBehaviour
     public interface ICommand
     {
         void Execute();
+        void Undo();
     }
 
     public static CommandManager Instance { get; private set; }
@@ -23,5 +24,14 @@ public class CommandManager : MonoBehaviour
     {
         command.Execute();
         m_CommandsBuffer.Push(command);
+    }
+    
+    public void Undo()
+    {
+        if(m_CommandsBuffer.Count == 0)
+            return;
+  
+        var cmd = m_CommandsBuffer.Pop();
+        cmd.Undo();
     }
 }

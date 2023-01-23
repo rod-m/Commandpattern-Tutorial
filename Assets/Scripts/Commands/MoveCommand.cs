@@ -22,4 +22,15 @@ public class MoveCommand : CommandManager.ICommand
             Gameboard.Instance.SwitchTeam();
         }
     }
+
+    public void Undo()
+    {
+        var unit = Gameboard.Instance.GetUnit(m_To);
+        if (unit != null)
+        {
+            Gameboard.Instance.MoveUnit(unit, m_From);
+            // switch back to other team
+            Gameboard.Instance.SwitchTeam();
+        }
+    }
 }
