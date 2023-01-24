@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Commands;
+using GameTools.CommandManager;
+using GameTools.CommandManager.Commands;
 using UnityEngine;
 
 public class UserControl : MonoBehaviour
