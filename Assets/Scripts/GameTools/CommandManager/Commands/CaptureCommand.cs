@@ -17,10 +17,11 @@ namespace GameTools.CommandManager.Commands
         public void Execute()
         {
             var unit = Gameboard.Instance.GetUnit(m_From);
-            if (unit != null)
+            var unitTaken = Gameboard.Instance.GetUnit(m_To);
+            if (unitTaken != null)
             {
                 Gameboard.Instance.MoveUnit(unit, m_To);
-                Gameboard.Instance.TakeOutUnit(unit);
+                Gameboard.Instance.TakeOutUnit(unitTaken);
                 Gameboard.Instance.SwitchTeam();
             }
         }
